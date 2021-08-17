@@ -9,8 +9,8 @@ def get_quote():
     return required
 
 def quote(update, context):
+    chat_id = update.message.chat_id
     if chat_id != '705433594':
-        chat_id = update.message.chat_id
         context.bot.send_message(chat_id=chat_id, text='Sorry only @hemanthkumarnarra can perform this function')
     else:
         required = get_quote()
