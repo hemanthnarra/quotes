@@ -1,6 +1,7 @@
 from telegram import update
 from telegram.ext import Updater, dispatcher, CommandHandler
 import requests
+import os
 
 def get_quote():
     contents = requests.get('https://free-quotes-api.herokuapp.com/').json()
