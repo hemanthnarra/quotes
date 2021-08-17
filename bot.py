@@ -11,11 +11,12 @@ def get_quote():
 def quote(update, context):
     chat_id = update.message.chat_id
     if chat_id == '705433594':
-        context.bot.send_message(chat_id=chat_id, text='Sorry only @hemanthkumarnarra can perform this function')
-    else:
         required = get_quote()
         chat_id = '-1001496045934'
         context.bot.send_message(chat_id=chat_id,text=required)
+    else:
+        chat_id = update.message.chat_id
+        context.bot.send_message(chat_id=chat_id,text='sorry! only hemanth can perform this action')
 
 def main():
     bot_token = os.environ.get('BOT_TOKEN','')
