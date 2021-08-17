@@ -9,15 +9,10 @@ def get_quote():
     return required
 
 def quote(update, context):
-    user_id = '705433594'
-    if update.message.chat_id == user_id:
-        required = get_quote()
-        channel_id = '-1001496045934'
-        context.bot.send_message(chat_id=channel_id,text=required)
-    else:
-        chat_id = update.message.chat_id
-        context.bot.send_message(chat_id=chat_id,text='sorry! only hemanth can perform this action')
-
+    required = get_quote()
+    channel_id = '-1001496045934'
+    context.bot.send_message(chat_id=channel_id,text=required)
+    
 def main():
     bot_token = os.environ.get('BOT_TOKEN','')
     updater = Updater(bot_token)
