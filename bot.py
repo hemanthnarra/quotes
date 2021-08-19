@@ -17,10 +17,10 @@ def main():
     bot_token =    os.environ.get('BOT_TOKEN','')
     updater = Updater(bot_token, use_context=True)
     job_queue = updater.job_queue
-    job_minute = job_queue.run_repeating(quote, interval=60, first=10)
+    job_minute = job_queue.run_repeating(quote, interval=200, first=10)
     # dp = updater.dispatcher
     # dp.add_handler(CommandHandler('quote', quote))
-    # updater.start_polling()
+    updater.start_polling()
     # updater.idle()
 
 if __name__ == '__main__':
