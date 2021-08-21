@@ -19,7 +19,7 @@ def main():
     job_queue = JobQueue()
     dispatcher = updater.dispatcher
     job_queue.set_dispatcher(dispatcher)
-    job_minute = job_queue.run_repeating(quote, interval=60, first=10)
+    job_minute = job_queue.run_repeating(callback=quote, interval=60, first=10)
     # dp.add_handler(CommandHandler('quote', quote))
     updater.start_polling()
     job_queue.start()
