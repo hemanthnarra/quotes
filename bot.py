@@ -1,5 +1,5 @@
 from telegram import update
-from telegram.ext import Updater, dispatcher, CommandHandler, callbackcontext
+from telegram.ext import Updater, dispatcher, CommandHandler, callbackcontext, JobQueue
 import requests
 import os
 
@@ -14,13 +14,15 @@ def quote(context: callbackcontext):
     context.bot.send_message(chat_id=channel_id,text=required)
     
 def main():
-    bot_token =    os.environ.get('BOT_TOKEN','')
+    bot_token = os.environ.get('BOT_TOKEN','')
     updater = Updater(bot_token, use_context=True)
-    job_queue = updater.job_queue
+    job_queue = JobQueue()
+    dispatcher = updater.dispatcher
+    job_queue.set_dispatcher(dispatcher)
     job_minute = job_queue.run_repeating(quote, interval=60, first=10)
-    # dp = updater.dispatcher
     # dp.add_handler(CommandHandler('quote', quote))
     updater.start_polling()
+    job_queue.start()
     # updater.idle()
 
 if __name__ == '__main__':
