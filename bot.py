@@ -17,8 +17,7 @@ def get_quote():
 
 def quote(context):
     text = get_quote()
-    channel_id = '-1001496045934'
-    context.bot.send_message(chat_id=channel_id, text=text)
+    context.bot.send_message(chat_id='@hemanthkumarnarra', text=text)
 
 def main():
     bot_token = os.environ.get('BOT_TOKEN','')
@@ -29,7 +28,7 @@ def main():
     job_queue.run_repeating(callback=quote, interval=60)
     dp.add_handler(CommandHandler("start", start))
     updater.start_polling()
-    updater.idle()
+    # updater.idle()
     job_queue.start()
 
 if __name__ == '__main__':
