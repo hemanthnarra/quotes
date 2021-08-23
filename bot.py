@@ -28,8 +28,8 @@ def main():
     job_queue.run_repeating(callback=quote, interval=60)
     dp.add_handler(CommandHandler("start", start))
     updater.start_polling()
-    # updater.idle()
     job_queue.start()
+    updater.idle()
 
 if __name__ == '__main__':
     main()
