@@ -1,0 +1,1 @@
+start_text = 'Welcome to my bot! I don\'t how you reached to this bot. This bot is not for you. Bye '
