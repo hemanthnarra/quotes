@@ -10,7 +10,7 @@ def start(update, context):
     context.bot.send_message(chat_id=user, text=constants.start_text)
 
 def get_quote():
-    url = 'https://api.quotable.io/random?tags=business|success'
+    url = 'https://api.quotable.io/random'
     contents = requests.get(url).json()
     quote_text = contents['content']
     return quote_text
@@ -25,7 +25,7 @@ def main():
     job_queue = JobQueue()
     dp = updater.dispatcher
     job_queue.set_dispatcher(dp)
-    job_queue.run_repeating(callback=quote, interval=60)
+    job_queue.run_repeating(callback=quote, interval=60, first=10)
     dp.add_handler(CommandHandler("start", start))
     updater.start_polling()
     job_queue.start()
