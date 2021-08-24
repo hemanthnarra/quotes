@@ -25,7 +25,8 @@ def main():
     job_queue = JobQueue()
     dp = updater.dispatcher
     job_queue.set_dispatcher(dp)
-    job_queue.run_repeating(callback=quote, interval=60, first=10)
+    job_queue.run_daily(callback=quote, days=(0, 1, 2, 3, 4, 5, 6), time=datetime.time(hour=11, minute=10, second=00))
+    # job_queue.run_repeating(callback=quote, interval=60, first=10)
     dp.add_handler(CommandHandler("start", start))
     updater.start_polling()
     job_queue.start()
