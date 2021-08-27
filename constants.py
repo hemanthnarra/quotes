@@ -1,1 +1,1 @@
-start_text = 'Welcome to my bot! I don\'t how you reached to this bot. This bot is not for you. Bye '
+start_text = 'Welcome to my bot! This bot sends quotes daily at 8.00 AM(IST) to @hemanthkumarnarra channel, that\'s it.'
